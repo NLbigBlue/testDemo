@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lan.mybatis.mapper.ScMapper">
+    <select id="getAllSc" resultType="com.lan.bean.req.NewSc">
+        select * from my_data.s_c
+    </select>
+    <delete id="deleteAllChoose">
+        delete from my_data.s_c where c_id = #{cid}
+    </delete>
+    <insert id="addChoose">
+        insert into my_data.s_c value(#{sid},#{cid},#{grade},#{courseName})
+    </insert>
+    <delete id="deleteSingle">
+        delete from my_data.s_c where c_id = #{cid} and s_id = #{sid}
+    </delete>
+    <select id="selectAllChooseOnly" resultType="com.lan.bean.req.NewSc">
+        select * from my_data.s_c where s_id = #{sid}
+    </select>
+
+    <update id="updateStudentGrade">
+        update my_data.s_c set grade = #{grade} where s_id=#{sid} and c_id=#{cid}
+    </update>
+
+    <delete id="deleteAllChooseBySid">
+        delete from my_data.s_c where s_id = #{sid}
+    </delete>
+</mapper>
